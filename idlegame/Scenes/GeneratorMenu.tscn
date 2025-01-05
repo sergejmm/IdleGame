@@ -1,0 +1,207 @@
+[gd_scene load_steps=8 format=3 uid="uid://7abylnwweg52"]
+
+[ext_resource type="Script" path="res://Scripts/GeneratorMenu.cs" id="1_vas0c"]
+[ext_resource type="Texture2D" uid="uid://d0aqcji4m1few" path="res://Assets/Images/SummonersRift.jpeg" id="2_2pwxs"]
+[ext_resource type="Script" path="res://Scripts/SaverLoader.cs" id="2_wfxse"]
+[ext_resource type="Texture2D" uid="uid://b8oieamgd6s6t" path="res://Icons/Ward.png" id="2_xac1g"]
+[ext_resource type="Texture2D" uid="uid://elquff2lpcr0" path="res://Icons/Shroom.png" id="3_8gcts"]
+[ext_resource type="Texture2D" uid="uid://cd756ibmxgpys" path="res://Icons/Voidgrub.png" id="4_mixgo"]
+
+[sub_resource type="AudioStream" id="AudioStream_avx0p"]
+
+[node name="GeneratorMenu" type="Control" node_paths=PackedStringArray("label", "WardButton", "ShroomButton", "VoidGrubButton", "QuitButton", "WardTimer", "ShroomTimer", "VoidGrubTimer", "WardProgressBar", "ShroomProgressBar", "VoidGrubProgressBar", "AudioPlayer", "CheckButton")]
+layout_mode = 3
+anchor_left = -0.000625
+anchor_right = 0.99875
+anchor_bottom = 0.993333
+offset_left = 1.0
+offset_right = 2.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("1_vas0c")
+label = NodePath("Label")
+WardButton = NodePath("WardButton")
+ShroomButton = NodePath("ShroomButton")
+VoidGrubButton = NodePath("VoidGrubButton")
+QuitButton = NodePath("QuitButton")
+WardTimer = NodePath("WardTimer")
+ShroomTimer = NodePath("ShroomTimer")
+VoidGrubTimer = NodePath("VoidGrubTimer")
+WardProgressBar = NodePath("WardButton/WardProgressBar")
+ShroomProgressBar = NodePath("ShroomButton/ShroomProgressBar")
+VoidGrubProgressBar = NodePath("VoidGrubButton/VoidGrubProgressBar")
+AudioPlayer = NodePath("AudioStreamPlayer")
+CheckButton = NodePath("Label/CheckButton")
+metadata/_edit_use_anchors_ = true
+
+[node name="BackgroundImage" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1600.0
+offset_bottom = 900.0
+mouse_filter = 2
+texture = ExtResource("2_2pwxs")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="."]
+custom_minimum_size = Vector2(80, 40)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -160.0
+offset_right = 160.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_type_variation = &"HeaderLarge"
+text = "Gold : 0"
+horizontal_alignment = 1
+text_direction = 1
+
+[node name="CheckButton" type="CheckButton" parent="Label"]
+layout_mode = 0
+offset_left = -640.0
+offset_right = -569.0
+offset_bottom = 31.0
+text = "g/s"
+
+[node name="WardButton" type="Button" parent="."]
+custom_minimum_size = Vector2(320, 80)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -160.0
+offset_top = 40.0
+offset_right = 160.0
+offset_bottom = 120.0
+grow_horizontal = 2
+text = "Wards"
+icon = ExtResource("2_xac1g")
+
+[node name="WardProgressBar" type="ProgressBar" parent="WardButton"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -9.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+show_percentage = false
+
+[node name="ShroomButton" type="Button" parent="."]
+custom_minimum_size = Vector2(320, 80)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -160.0
+offset_top = 140.0
+offset_right = 160.0
+offset_bottom = 220.0
+grow_horizontal = 2
+text = "Shrooms"
+icon = ExtResource("3_8gcts")
+
+[node name="ShroomProgressBar" type="ProgressBar" parent="ShroomButton"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -9.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+show_percentage = false
+
+[node name="VoidGrubButton" type="Button" parent="."]
+custom_minimum_size = Vector2(320, 80)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -160.0
+offset_top = 240.0
+offset_right = 160.0
+offset_bottom = 320.0
+grow_horizontal = 2
+text = "Voidgrubs
+"
+icon = ExtResource("4_mixgo")
+
+[node name="VoidGrubProgressBar" type="ProgressBar" parent="VoidGrubButton"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -9.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+show_percentage = false
+
+[node name="SaveGameButton" type="Button" parent="."]
+custom_minimum_size = Vector2(320, 80)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -80.0
+offset_right = 320.0
+grow_vertical = 0
+text = "Save"
+
+[node name="LoadGameButton" type="Button" parent="."]
+custom_minimum_size = Vector2(320, 80)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -320.0
+offset_top = -80.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Load"
+
+[node name="QuitButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 650.0
+offset_top = 820.0
+offset_right = 970.0
+offset_bottom = 900.0
+text = "Quit"
+
+[node name="WardTimer" type="Timer" parent="."]
+
+[node name="ShroomTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="VoidGrubTimer" type="Timer" parent="."]
+wait_time = 4.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStream_avx0p")
+
+[node name="Utilities" type="Node" parent="."]
+
+[node name="SaverLoader" type="Node" parent="Utilities" node_paths=PackedStringArray("generatorMenu")]
+script = ExtResource("2_wfxse")
+generatorMenu = NodePath("../..")
+
+[connection signal="pressed" from="Label/CheckButton" to="." method="OnCheckButtonPressed"]
+[connection signal="pressed" from="WardButton" to="." method="OnWardButtonPressed"]
+[connection signal="pressed" from="ShroomButton" to="." method="OnShroomButtonPressed"]
+[connection signal="pressed" from="VoidGrubButton" to="." method="OnVoidGrubButtonPressed"]
+[connection signal="pressed" from="SaveGameButton" to="Utilities/SaverLoader" method="SaveGameButton"]
+[connection signal="pressed" from="LoadGameButton" to="Utilities/SaverLoader" method="LoadGameButton"]
+[connection signal="button_up" from="QuitButton" to="." method="OnQuitButtonUp"]
+[connection signal="timeout" from="WardTimer" to="." method="OnWardTimerTimeout"]
+[connection signal="timeout" from="ShroomTimer" to="." method="OnShroomTimerTimeout"]
+[connection signal="timeout" from="VoidGrubTimer" to="." method="OnVoidGrubTimerTimeout"]

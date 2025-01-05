@@ -1,0 +1,74 @@
+[gd_scene load_steps=3 format=3 uid="uid://crkkvqvu73h3u"]
+
+[ext_resource type="Script" path="res://Scripts/MainMenu.cs" id="1_7t8qv"]
+[ext_resource type="VideoStream" path="res://Assets/Videos/Tales-from-the-Rift-_-Login-Screen-League-of-Legends.ogv" id="2_3nha8"]
+
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("NewGameButton", "LoadGameButton", "CreditsButton", "QuitButton")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7t8qv")
+NewGameButton = NodePath("NewGameButton")
+LoadGameButton = NodePath("LoadGameButton")
+CreditsButton = NodePath("CreditsButton")
+QuitButton = NodePath("QuitGameButton")
+
+[node name="BackgroundVideo" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+stream = ExtResource("2_3nha8")
+autoplay = true
+expand = true
+loop = true
+
+[node name="NewGameButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -750.0
+offset_top = -400.0
+offset_right = -430.0
+offset_bottom = -320.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "New Game"
+
+[node name="LoadGameButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 175.0
+offset_right = 370.0
+offset_bottom = 255.0
+text = "Load Game"
+
+[node name="CreditsButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 300.0
+offset_right = 370.0
+offset_bottom = 380.0
+text = "Credits"
+
+[node name="QuitGameButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 425.0
+offset_right = 370.0
+offset_bottom = 505.0
+text = "Quit Game"
+
+[connection signal="button_up" from="NewGameButton" to="." method="OnNewGameButtonUp"]
+[connection signal="button_up" from="LoadGameButton" to="." method="OnLoadGameButtonUp"]
+[connection signal="button_up" from="CreditsButton" to="." method="OnCreditsButtonUp"]
+[connection signal="button_up" from="QuitGameButton" to="." method="OnQuitGameButtonUp"]

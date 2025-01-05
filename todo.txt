@@ -1,0 +1,13 @@
+### To-do-List ###
+
+IdleGame: Core Components that we should have
+-Main Menu: New Game, Load Game, Credits
+-Gameplay: Generator Menu, Upgrade Menu
+-DataBase: to save progress (.txt/.bin file?)
+
+### Daniel ###
+-Gameplay:
+Make timeout faster after 10,25,50,100 purchases
+
+### Sergej ###
+-Main Menu: New Game, Load Game From Main Menu, Credits
