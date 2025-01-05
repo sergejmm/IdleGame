@@ -1,3 +1,4 @@
+https://github.com/Sergej0023/IdleGame
 # IdleGame - C# and Godot Practice
 
 By Daniel Jönsson, Sergej Macut
